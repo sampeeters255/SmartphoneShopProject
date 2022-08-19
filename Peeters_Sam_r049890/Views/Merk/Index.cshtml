@@ -1,0 +1,37 @@
+@model IEnumerable<Merk>
+
+@{
+  ViewData["Title"] = "lijst met klanten";
+}
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>@Html.DisplayNameFor(m => m.Merknaam)</th>
+          <th>@Html.DisplayNameFor(m => m.Herkomst)</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var item in Model)
+        {
+          <tr>
+            <td class="aling-middle">
+              @Html.DisplayFor(modelItem => item.Merknaam)
+            </td>
+            <td class="aling-middle">
+              @Html.DisplayFor(modelItem => item.Herkomst)
+            </td>
+            
+
+            <td class="aling-middle">
+              <a class="btn btn-outline-primary">Edit</a> |
+              <a class="btn btn-outline-primary">Details</a> |
+              <a class="btn btn-outline-danger">Delete</a>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

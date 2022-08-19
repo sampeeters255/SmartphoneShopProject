@@ -8,18 +8,17 @@ using System.Threading.Tasks;
 
 namespace Peeters_Sam_r049890.Controllers
 {
-  public class KlantController : Controller
+  public class MerkController : Controller
   {
-
     private readonly ApplicationDbContext _context;
 
-    public KlantController(ApplicationDbContext context)
+    public MerkController(ApplicationDbContext context)
     {
       _context = context;
     }
     public async Task<IActionResult> Index()
     {
-      var data = await _context.Klanten.ToListAsync();
+      var data = await _context.Merken.ToListAsync();
       return View(data);
     }
   }
