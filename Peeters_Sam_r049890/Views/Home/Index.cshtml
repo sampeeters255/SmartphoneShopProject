@@ -1,11 +1,11 @@
-@model IEnumerable<Smartphone>
+@model Peeters_Sam_r049890.ViewModels.SmartphoneListViewModel;
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="row">
-  @foreach (var item in Model)
+  @foreach (var item in Model.Smartphones)
   {
   <div class="col-md-4 col-xs-6">
     <div class="card" style="width: 18rem;">
