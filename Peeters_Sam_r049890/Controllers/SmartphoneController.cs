@@ -21,5 +21,10 @@ namespace Peeters_Sam_r049890.Controllers
       var data = await _context.Smartphones.ToListAsync();
       return View(data);
     }
+
+    public IActionResult Create()
+    {
+      return View();
+    }
   }
 }
