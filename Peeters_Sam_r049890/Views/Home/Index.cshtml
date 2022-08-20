@@ -9,9 +9,9 @@
   {
     <div class="col-md-4 col-xs-6">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+        <img class="card-img-top" src="@item.ImageUrl" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">@Html.DisplayFor(s => item.Merk.Merknaam)</h5>
+          <h5 class="card-title">@Html.DisplayFor(s => item.Merk)</h5>
           <p class="card-text">@Html.DisplayFor(s => item.Model)</p>
           <p class="card-text">€ @Html.DisplayFor(s => item.Prijs)</p>
           <a class="btn btn-primary">Details</a> | <a class="btn btn-primary">Add to shoppingcard</a>

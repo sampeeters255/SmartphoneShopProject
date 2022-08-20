@@ -1,0 +1,39 @@
+@model Peeters_Sam_r049890.ViewModels.DetailsSmartphoneViewModel
+
+@{
+  ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+  <h4>Smartphone</h4>
+  <hr />
+  div class="row">
+  <div class="col-md-4">
+    <form>
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      
+      <div class="form-group">
+        <label asp-for="Merk" class="control-label"></label>
+        : @Model.Merk
+        <span asp-validation-for="Merk" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Model" class="control-label"></label>
+        : @Model.Model
+        <span asp-validation-for="Model" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="Prijs" class="control-label"></label>
+        : @Model.Prijs
+        <span asp-validation-for="Prijs" class="text-danger"></span>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<div>
+  <a asp-action="Edit" asp-route-id="@Model.SmartphoneId">Edit</a> |
+  <a asp-action="Index">Back to List</a>
+</div>

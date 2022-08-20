@@ -13,11 +13,13 @@ namespace Peeters_Sam_r049890.Controllers
   public class MerkController : Controller
   {
     private readonly ApplicationDbContext _context;
+    
 
     public MerkController(ApplicationDbContext context)
     {
       _context = context;
     }
+    
     public async Task<IActionResult> Index()
     {
       var data = await _context.Merken.ToListAsync();

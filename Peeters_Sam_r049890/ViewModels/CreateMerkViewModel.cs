@@ -7,6 +7,7 @@ namespace Peeters_Sam_r049890.ViewModels
 {
   public class CreateMerkViewModel
   {
+    
     public string Merknaam { get; set; }
     public string Herkomst { get; set; }
   }

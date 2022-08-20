@@ -1,0 +1,57 @@
+@model Peeters_Sam_r049890.ViewModels.ShoppingCartViewModel;
+@{
+    ViewData["Title"] = "Shoppingcart";
+}
+
+<div class="row">
+  <div class="col-md-8 offset-2">
+    <div class="text-center">
+      <h1>Shoppingcart</h1>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Hoeveelheid</th> 
+          <th>Smartphone</th> 
+          <th>Prijs</th> 
+          <th>Subtotaal</th> 
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var item in Model.ShoppingCart.shoppingCardItems)
+	{
+        <tr>
+          <td class="aling-middle">@item.Hoeveelheid</td>
+          <td class="aling-middle">@item.Smartphone.Merk + " " + @item.Smartphone.Model</td>
+          <td class="aling-middle">@item.Smartphone.Prijs.ToString()</td>
+          <td class="aling-middle">@((item.Hoeveelheid*item.Smartphone.Prijs).ToString())</td>
+          <td class="aling-middle">
+            <a class="text-danger" asp-controller="Order" asp-action="RemoveItemFromShoppingCart">-</a>
+          </td>
+          <td class="aling-middle">
+            <a class="text-success" asp-controller="Order" asp-action="AddItemToShoppingCart">+</a>
+          </td>
+        </tr>
+	}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2"></td>
+          <td><b>Totaal</b></td>
+          <td>
+            @Model.ShoppingCartTotal.ToString();
+          </td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="text-center">
+      <div class="btn-group">
+        <a class="btn btn-outline-primary" asp-controller="Smartphone" asp-action="Index">
+          Terug naar winkel
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>

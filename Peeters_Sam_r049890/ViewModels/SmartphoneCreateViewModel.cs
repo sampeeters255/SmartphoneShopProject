@@ -1,3 +1,5 @@
+using Peeters_Sam_r049890.Data;
+using Peeters_Sam_r049890.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +9,16 @@ namespace Peeters_Sam_r049890.ViewModels
 {
   public class SmartphoneCreateViewModel
   {
-    public string Model { get; set; }
+    
+    public string Merk { get; set; }
     public Decimal Prijs { get; set; }
-    public int MerkId { get; set; }
+    public string Model { get; set; }
+    
     public DateTime AangemaaktDatum { get; set; }
   }
 }
+
+
+
+
+

@@ -8,7 +8,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Merk.Merknaam)</th>
+          <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Merk)</th>
           <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Model)</th>
           <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Prijs)</th>
         </tr>
@@ -16,25 +16,26 @@
       <tbody>
         @foreach (var item in Model.Smartphones)
         {
-        <tr>
-          <td class="aling-middle">
-            @Html.DisplayFor(modelItem => item.Merk.Merknaam)
-          </td>
-          <td class="aling-middle">
-            @Html.DisplayFor(modelItem => item.Model)
-          </td>
-          <td class="aling-middle">
-            @Html.DisplayFor(modelItem => item.Prijs)
-          </td>
+          <tr>
+            <td class="aling-middle">
+              @Html.DisplayFor(modelItem => item.Merk)
+            </td>
+            <td class="aling-middle">
+              @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td class="aling-middle">
+              @Html.DisplayFor(modelItem => item.Prijs)
+            </td>
 
-          <td class="aling-middle">
-            <a class="btn btn-outline-primary">Edit</a> |
-            <a class="btn btn-outline-primary">Details</a> |
-            <a class="btn btn-outline-danger">Delete</a>
-          </td>
-        </tr>
+            <td class="aling-middle">
+              <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.SmartphoneId">Edit</a> |
+              <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.SmartphoneId">Details</a> |
+              <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.SmartphoneId">Delete</a>
+            </td>
+          </tr>
         }
       </tbody>
     </table>
+    <a class="btn btn-success" asp-action="Create">Add Smartphone</a>
   </div>
 </div>
