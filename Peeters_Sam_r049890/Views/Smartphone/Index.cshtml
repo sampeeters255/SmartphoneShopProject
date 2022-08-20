@@ -1,4 +1,4 @@
-@model IEnumerable<Smartphone>
+@model Peeters_Sam_r049890.ViewModels.SmartphoneListViewModel
 
 @{
     ViewData["Title"] = "lijst met smartphones";
@@ -8,13 +8,13 @@
     <table class="table">
       <thead>
         <tr>
-          <th>@Html.DisplayNameFor(phone => phone.Merk.Merknaam)</th>
-          <th>@Html.DisplayNameFor(phone => phone.Model)</th>
-          <th>@Html.DisplayNameFor(phone => phone.Prijs)</th>
+          <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Merk.Merknaam)</th>
+          <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Model)</th>
+          <th>@Html.DisplayNameFor(phone => phone.Smartphones[0].Prijs)</th>
         </tr>
       </thead>
       <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Smartphones)
         {
         <tr>
           <td class="aling-middle">

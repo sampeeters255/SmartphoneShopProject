@@ -10,6 +10,7 @@
         <tr>
           <th>@Html.DisplayNameFor(m => m.Merknaam)</th>
           <th>@Html.DisplayNameFor(m => m.Herkomst)</th>
+          <a class="btn btn-outline-success" asp-action="Create" >Add merk</a>
         </tr>
       </thead>
       <tbody>
@@ -25,9 +26,8 @@
             
 
             <td class="aling-middle">
-              <a class="btn btn-outline-primary">Edit</a> |
-              <a class="btn btn-outline-primary">Details</a> |
-              <a class="btn btn-outline-danger">Delete</a>
+              <a class="btn btn-outline-primary"asp-action="Edit" asp-route-id="@item.MerkId">Edit</a> |              
+              <a class="btn btn-outline-danger" asp-controller="Merk" asp-action="Delete" asp-route-id="@item.MerkId">Delete</a>
             </td>
           </tr>
         }

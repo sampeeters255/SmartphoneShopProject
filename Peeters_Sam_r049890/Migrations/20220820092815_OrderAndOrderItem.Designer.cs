@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Peeters_Sam_r049890.Data;
 
 namespace Peeters_Sam_r049890.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220820092815_OrderAndOrderItem")]
+    partial class OrderAndOrderItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,29 +106,6 @@ namespace Peeters_Sam_r049890.Migrations
                     b.ToTable("OrderItem");
                 });
 
-            modelBuilder.Entity("Peeters_Sam_r049890.Models.ShoppingCardItem", b =>
-                {
-                    b.Property<int>("ShoppingCardItemId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Hoeveelheid")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ShoppingCardId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SmartphoneId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ShoppingCardItemId");
-
-                    b.HasIndex("SmartphoneId");
-
-                    b.ToTable("ShoppingCardItems");
-                });
-
             modelBuilder.Entity("Peeters_Sam_r049890.Models.Smartphone", b =>
                 {
                     b.Property<int>("SmartphoneId")
@@ -166,13 +145,6 @@ namespace Peeters_Sam_r049890.Migrations
                         .HasForeignKey("SmartphoneId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Peeters_Sam_r049890.Models.ShoppingCardItem", b =>
-                {
-                    b.HasOne("Peeters_Sam_r049890.Models.Smartphone", "Smartphone")
-                        .WithMany()
-                        .HasForeignKey("SmartphoneId");
                 });
 
             modelBuilder.Entity("Peeters_Sam_r049890.Models.Smartphone", b =>

@@ -18,10 +18,14 @@ namespace Peeters_Sam_r049890.Data
     public DbSet<Merk> Merken { get; set; }
 
     public DbSet<Klant> Klanten { get; set; }
+    public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
+    public DbSet<ShoppingCardItem> ShoppingCardItems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<Smartphone>().ToTable("Smartphone").Property(s => s.Prijs).HasColumnType("decimal(18,2)");
+      modelBuilder.Entity<OrderItem>().ToTable("OrderItem").Property(s => s.Prijs).HasColumnType("decimal(18,2)");
       base.OnModelCreating(modelBuilder);
     }
     

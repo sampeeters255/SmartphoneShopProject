@@ -1,22 +1,24 @@
-@model Peeters_Sam_r049890.ViewModels.SmartphoneListViewModel;
+@model Peeters_Sam_r049890.ViewModels.SmartphoneListViewModel
 
 @{
-    ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Home Page";
 }
 
 <div class="row">
   @foreach (var item in Model.Smartphones)
   {
-  <div class="col-md-4 col-xs-6">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">@Html.DisplayFor(sp => item.Merk.Merknaam)</h5>
-        <p class="card-text">@Html.DisplayFor(sp => item.Model)</p>
-        <p class="card-text">€ @Html.DisplayFor(sp => item.Prijs)</p>
-        <a class="btn btn-primary">Details</a> | <a class="btn btn-primary">Add to shoppingcard</a>
+    <div class="col-md-4 col-xs-6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">@Html.DisplayFor(s => item.Merk.Merknaam)</h5>
+          <p class="card-text">@Html.DisplayFor(s => item.Model)</p>
+          <p class="card-text">€ @Html.DisplayFor(s => item.Prijs)</p>
+          <a class="btn btn-primary">Details</a> | <a class="btn btn-primary">Add to shoppingcard</a>
+        </div>
       </div>
     </div>
-  </div>
   }
 </div>
+
+

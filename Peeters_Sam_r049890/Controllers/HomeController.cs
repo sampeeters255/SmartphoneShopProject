@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Peeters_Sam_r049890.Data;
 using Peeters_Sam_r049890.Models;
+using Peeters_Sam_r049890.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,13 +21,14 @@ namespace Peeters_Sam_r049890.Controllers
     public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
-      _context = context;
+            _context = context;
     }
 
     public async Task<IActionResult> Index()
     {
-      var data = await _context.Smartphones.ToListAsync();
-      return View(data);
+      SmartphoneListViewModel vm = new SmartphoneListViewModel();
+      vm.Smartphones = await _context.Smartphones.ToListAsync();
+      return View(vm);
     }
 
     
