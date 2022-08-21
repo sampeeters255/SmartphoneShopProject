@@ -14,5 +14,17 @@ namespace Peeters_Sam_r049890.Data.Repository
     {
       _context = context;
     }
+
+    public int AddSmartphone(ShoppingCart shoppingCart, int hoeveelheid)
+    {
+      shoppingCart.Hoeveelheid += hoeveelheid;
+      return shoppingCart.Hoeveelheid;
+    }
+
+    public int RemoveOneSmartphone(ShoppingCart shoppingCart, int hoeveelheid)
+    {
+      shoppingCart.Hoeveelheid += hoeveelheid;
+      return shoppingCart.Hoeveelheid;
+    }
   }
 }

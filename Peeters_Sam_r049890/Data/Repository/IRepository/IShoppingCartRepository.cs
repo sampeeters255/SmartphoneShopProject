@@ -8,5 +8,7 @@ namespace Peeters_Sam_r049890.Data.Repository.IRepository
 {
   public interface IShoppingCartRepository : IRepository<ShoppingCart> 
   {
+    int AddSmartphone(ShoppingCart shoppingCart, int hoeveelheid);
+    int RemoveOneSmartphone(ShoppingCart shoppingCart, int hoeveelheid);
   }
 }
