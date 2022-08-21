@@ -19,10 +19,7 @@ namespace Peeters_Sam_r049890.Data.Cart
       _context = context;
     }
 
-    //public static ShoppingCart GetShoppingCart(IServiceProvider service)
-    //{
-    //  ISession session = services.GetRequiredService()
-    //}
+   
 
     public void AddSmartphoneToCart(Smartphone smartphone)
     {

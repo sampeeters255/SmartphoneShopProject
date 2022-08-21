@@ -26,7 +26,7 @@ namespace Peeters_Sam_r049890.Controllers
       return View(vm);
     }
 
-    public IActionResult Details(string? id)
+    public IActionResult Details(string id)
     {
       CustomUser gebruiker = _userManager.Users.Where(g => g.Id == id).FirstOrDefault();
       if (id == null)
