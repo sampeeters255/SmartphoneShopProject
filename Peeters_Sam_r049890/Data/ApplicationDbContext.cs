@@ -5,11 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Peeters_Sam_r049890.Areas.Identity.Data;
 using Peeters_Sam_r049890.Models;
 
 namespace Peeters_Sam_r049890.Data
 {
-  public class ApplicationDbContext: IdentityDbContext<IdentityUser>
+  public class ApplicationDbContext: IdentityDbContext<CustomUser>
   {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {

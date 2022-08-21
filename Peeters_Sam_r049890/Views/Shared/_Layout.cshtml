@@ -12,7 +12,7 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
           <div class="container">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Smartphone Webshop</a>
-            <partial name="_LoginPartial" />
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -30,12 +30,13 @@
                     Management
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" asp-controller="Klant" asp-action="Index">Klanten</a>
+                    <a class="dropdown-item" asp-controller="Gebruiker" asp-action="Index">Klanten</a>
                     <a class="dropdown-item" asp-controller="Smartphone" asp-action="Index">Smartphones</a>
                     <a class="dropdown-item" asp-controller="Merk" asp-action="Index">Merken</a>
                   </div>
                 </li>
               </ul>
+              <partial name="_LoginPartial" />
             </div>
           </div>
         </nav>

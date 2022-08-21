@@ -1,4 +1,4 @@
-﻿@inject SignInManager<IdentityUser> SignInManager
+@inject SignInManager<Peeters_Sam_r049890.Areas.Identity.Data.CustomUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

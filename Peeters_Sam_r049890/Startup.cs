@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Peeters_Sam_r049890.Areas.Identity.Data;
 using Peeters_Sam_r049890.Data;
 using System;
 using System.Collections.Generic;
@@ -29,12 +30,13 @@ namespace Peeters_Sam_r049890
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
             services.AddControllersWithViews();
-      services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<CustomUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            
       
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -59,9 +61,35 @@ namespace Peeters_Sam_r049890
               endpoints.MapControllerRoute(
                   name: "default",
                   pattern: "{controller=Home}/{action=Index}/{id?}");
-              endpoints.MapRazorPages();
-              
+              endpoints.MapRazorPages();              
             });
+
+             CreateRoles(serviceProvider).Wait();
         }
+
+    private async Task CreateRoles(IServiceProvider serviceProvider)
+    {
+      RoleManager<IdentityRole> roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+      ApplicationDbContext context = serviceProvider.GetRequiredService<ApplicationDbContext>();
+      IdentityResult result;
+      bool roleCheck = await roleManager.RoleExistsAsync("user");
+      if (!roleCheck)
+      {
+        result = await roleManager.CreateAsync(new IdentityRole("user"));
+      }
+      roleCheck = await roleManager.RoleExistsAsync("manager");
+      if (!roleCheck)
+      {
+        result = await roleManager.CreateAsync(new IdentityRole("manager"));
+      }
+      roleCheck = await roleManager.RoleExistsAsync("admin");
+      if (!roleCheck)
+      {
+        result = await roleManager.CreateAsync(new IdentityRole("admin"));
+      }
+      context.SaveChanges();
     }
+      
+
+  }
 }

@@ -1,0 +1,15 @@
+@model Peeters_Sam_r049890.ViewModels.GebruikerDetailViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@Model.Naam @Model.Voornaam</h1>
+
+<p>
+  Id: @Model.Id
+</p>
+<p>
+  UserName: @Model.Id
+</p>
+
+@Html.ActionLink("Terug", "Index", "Gebruiker")
