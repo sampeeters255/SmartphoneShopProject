@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Peeters_Sam_r049890.Data;
 
 namespace Peeters_Sam_r049890.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220821175013_shoppingCart")]
+    partial class shoppingCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,10 +168,6 @@ namespace Peeters_Sam_r049890.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -227,8 +225,6 @@ namespace Peeters_Sam_r049890.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("CustomUser");
                 });
 
             modelBuilder.Entity("Peeters_Sam_r049890.Models.Klant", b =>
@@ -365,7 +361,7 @@ namespace Peeters_Sam_r049890.Migrations
 
                     b.HasIndex("SmartphoneId");
 
-                    b.ToTable("ShoppingCart");
+                    b.ToTable("ShoppingCars");
                 });
 
             modelBuilder.Entity("Peeters_Sam_r049890.Models.Smartphone", b =>
@@ -397,16 +393,6 @@ namespace Peeters_Sam_r049890.Migrations
                     b.HasKey("SmartphoneId");
 
                     b.ToTable("Smartphone");
-                });
-
-            modelBuilder.Entity("Peeters_Sam_r049890.Models.ApplicationUser", b =>
-                {
-                    b.HasBaseType("Peeters_Sam_r049890.Areas.Identity.Data.CustomUser");
-
-                    b.Property<int>("AppUserId")
-                        .HasColumnType("int");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,4 +1,4 @@
-@model Peeters_Sam_r049890.ViewModels.ShoppingCartViewModel;
+@*@model ShoppingCart;
 @{
     ViewData["Title"] = "Shoppingcart";
 }
@@ -18,13 +18,12 @@
         </tr>
       </thead>
       <tbody>
-        @foreach (var item in Model.ShoppingCart.shoppingCardItems)
-	{
+        	
         <tr>
-          <td class="aling-middle">@item.Hoeveelheid</td>
-          <td class="aling-middle">@item.Smartphone.Merk + " " + @item.Smartphone.Model</td>
-          <td class="aling-middle">@item.Smartphone.Prijs.ToString()</td>
-          <td class="aling-middle">@((item.Hoeveelheid*item.Smartphone.Prijs).ToString())</td>
+          <td class="aling-middle">Model.</td>
+          <td class="aling-middle"></td>
+          <td class="aling-middle"></td>
+          <td class="aling-middle"></td>
           <td class="aling-middle">
             <a class="text-danger" asp-controller="Order" asp-action="RemoveItemFromShoppingCart">-</a>
           </td>
@@ -39,7 +38,7 @@
           <td colspan="2"></td>
           <td><b>Totaal</b></td>
           <td>
-            @Model.ShoppingCartTotal.ToString();
+            
           </td>
           <td></td>
         </tr>
@@ -54,4 +53,4 @@
     </div>
   </div>
 
-</div>
+</div>*@

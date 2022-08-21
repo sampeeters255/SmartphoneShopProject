@@ -24,6 +24,9 @@ namespace Peeters_Sam_r049890.Data
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<ShoppingCardItem> ShoppingCardItems { get; set; }
+    public DbSet<ShoppingCart> ShoppingCart { get; set; }
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Peeters_Sam_r049890.Data;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Peeters_Sam_r049890.Controllers
 {
+  [Authorize(Roles = "manager")]
   public class MerkController : Controller
   {
     private readonly ApplicationDbContext _context;

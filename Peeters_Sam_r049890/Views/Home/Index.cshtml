@@ -14,7 +14,7 @@
           <h5 class="card-title">@Html.DisplayFor(s => item.Merk)</h5>
           <p class="card-text">@Html.DisplayFor(s => item.Model)</p>
           <p class="card-text">€ @Html.DisplayFor(s => item.Prijs)</p>
-          <a class="btn btn-primary">Details</a> | <a class="btn btn-primary">Add to shoppingcard</a>
+          <a class="btn btn-primary" asp-controller="Order" asp-action="Index" asp-route-id="@item.SmartphoneId">Add to shoppingcard</a>
         </div>
       </div>
     </div>

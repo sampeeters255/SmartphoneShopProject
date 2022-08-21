@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Peeters_Sam_r049890.Areas.Identity.Data;
@@ -25,7 +26,7 @@ namespace Peeters_Sam_r049890.Controllers
       };
       return View(vm);
     }
-
+    [Authorize(Roles = "manager")]
     public IActionResult Details(string id)
     {
       CustomUser gebruiker = _userManager.Users.Where(g => g.Id == id).FirstOrDefault();
@@ -57,6 +58,7 @@ namespace Peeters_Sam_r049890.Controllers
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [Authorize(Roles = "Manager")]
     public async Task<IActionResult> Create(CreateGebruikerViewModel viewModel)
     {
       if (ModelState.IsValid)
@@ -87,6 +89,7 @@ namespace Peeters_Sam_r049890.Controllers
     }
 
     [HttpPost]
+    [Authorize(Roles = "Manager")]
     public async Task<IActionResult> Delete(string id)
     {
       CustomUser user = await _userManager.FindByIdAsync(id);

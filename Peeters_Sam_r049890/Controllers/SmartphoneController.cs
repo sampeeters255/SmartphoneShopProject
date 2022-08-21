@@ -1,15 +1,18 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Peeters_Sam_r049890.Data;
+using Peeters_Sam_r049890.Data.Repository.IRepository;
 using Peeters_Sam_r049890.Models;
 using Peeters_Sam_r049890.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Peeters_Sam_r049890.Controllers
@@ -19,6 +22,7 @@ namespace Peeters_Sam_r049890.Controllers
     public List<Smartphone> smartphones;
     private readonly ApplicationDbContext _context;
     private readonly IWebHostEnvironment _webHostEnvironment;
+    
 
     public SmartphoneController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
     {
@@ -31,7 +35,7 @@ namespace Peeters_Sam_r049890.Controllers
       vm.Smartphones = await _context.Smartphones.ToListAsync();
       return View(vm);
     }
-
+    [Authorize(Roles = "manager")]
     public async Task<IActionResult> Create([Bind("SmartphoneId,Prijs,Model,Merk,ImageFile")] Smartphone smartphone)
     {
       if (ModelState.IsValid)
@@ -83,6 +87,10 @@ namespace Peeters_Sam_r049890.Controllers
       return View(vm);
     }
 
+   
+    
+
+    [Authorize(Roles = "manager")]
     public async Task<IActionResult> Delete(int? id)
     {
       if (id == null)
